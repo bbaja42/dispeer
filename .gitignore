@@ -1,0 +1,72 @@
+*.py[cod]
+
+# Packages
+*.egg
+*.egg-info
+dist
+build
+eggs
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+venv
+staticfiles
+lib
+lib64
+__pycache__
+.Python
+
+logs
+*.log
+*.pot
+local_settings.py
+development_settings.py
+production_settings.py
+
+env
+bin
+include
+.DS_Store
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage reports
+.coverage
+.tox
+nosetests.xml
+
+# Sphinx
+
+_build
+_static
+_templates
+
+#Translations
+*.mo
+
+#Mr Developer
+.mr.developer.cfg
+.project
+.pydevproject
+
+# C extensions
+*.so
+
+# Sublime
+*.sublime-workspace
+
+# Gedit
+*~
+
+# .* # <-- all hidden files. if uncommented, also uncomment `!.gitignore`
+# !.gitignore
+
+# Django
+media
+
+# PyCharm
+.idea
