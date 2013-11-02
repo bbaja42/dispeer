@@ -6,7 +6,7 @@ A collaboration of etherpads.
 
 ![alt text](https://www.gnu.org/graphics/agplv3-88x31.png "AGPLv3")
 
-Copyright © 2013, The Free Server Project
+Copyright © 2013, Padraic Harley
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as
