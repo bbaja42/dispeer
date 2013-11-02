@@ -2,6 +2,7 @@ from urllib import parse
 import html
 
 from bottle import jinja2_template as template
+from bson.objectid import ObjectId
 from pymongo import MongoClient
 import bottle
 import requests
@@ -37,18 +38,21 @@ def save_new_collection():
     return template('index', greeting='Saved! {}'.format(collection_id))
 
 
-@app.get('/collection/{name}')
-def show_collection():
-    pass
+@app.get('/collection/<collection_id>')
+def show_collection(collection_id=None):
+    if collection_id:
+        collection = db.collections.find_one({"_id": ObjectId(collection_id)})
+    collection_data = parse_url_to_data(collection['url'])
+    return template('collection',
+                    collection_data=collection_data,
+                    collection=collection)
 
 
 def parse_url_to_data(url):
-    # collection['data'] = parse_url_to_data(collection['url'])
     parsed = parse.urlparse(url)
     nURL = "{}://{}/ep/pad/export{}/latest?format=txt".format(parsed.scheme,
                                                               parsed.hostname,
                                                               parsed.path)
-    print(nURL)
     r = requests.get(nURL)
     data = html.escape(r.text)
     return data
