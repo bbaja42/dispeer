@@ -14,10 +14,9 @@ app = bottle.Bottle()
 
 
 @app.get('/')
-def index():
+def index(custom_greeting='Hello world! =D'):
     collections = db.collections.find()
-    greeting = "Hello world! =D"
-    return template('index', greeting=greeting, collections=collections)
+    return template('index', greeting=custom_greeting, collections=collections)
 
 
 @app.get('/new')
@@ -35,7 +34,7 @@ def save_new_collection():
             'url': url
         }
         collection_id = db.collections.insert(collection)
-    return template('index', greeting='Saved! {}'.format(collection_id))
+    return index(custom_greeting='Saved! {}'.format(collection_id))
 
 
 @app.get('/collection/<collection_id>')
